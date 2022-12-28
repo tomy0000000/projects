@@ -19,13 +19,22 @@ defaults:
 
 jobs:
   build:
+    name: 🛠 Build
     runs-on: ubuntu-latest
     steps:
       - name: 🛒 Checkout
         uses: actions/checkout@v3
 
-      - name: ⚙️ Setup eleventy and Build
-        uses: TartanLlama/actions-eleventy@master
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 19
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🏗️ Build site
+        run: npm run build
 
       - name: ⚙️ Setup Pages
         id: pages
@@ -37,6 +46,7 @@ jobs:
           path: ./_site
 
   deploy:
+    name: 🚀 Deploy
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
