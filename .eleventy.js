@@ -4,10 +4,11 @@ module.exports = function (eleventyConfig) {
     files: "./_site/css/**/*.css",
   });
 
-  // Copy static files to output
+  // Static files
   eleventyConfig.addPassthroughCopy({ "src/seo/**": "/" });
+  eleventyConfig.addPassthroughCopy("src/js");
 
-  // Current year
+  // Shortcode
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
   return {
