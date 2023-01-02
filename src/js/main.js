@@ -1,3 +1,6 @@
+import "../../node_modules/bulma-modal-fx/dist/js/modal-fx.js";
+import "../scss/main.scss";
+
 const projects = document.getElementById("projects").dataset.projects;
 
 const stars = fetch(
