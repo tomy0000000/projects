@@ -13,8 +13,8 @@ const followers = fetch("https://api.github.com/users/tomy0000000")
 const since = document.getElementById("since").dataset.since;
 
 Promise.all([projects, stars, followers, since]).then((values) => {
-  document.getElementById("projects").innerHTML = values[0];
-  document.getElementById("stars").innerHTML = values[1];
-  document.getElementById("followers").innerHTML = values[2];
-  document.getElementById("since").innerHTML = values[3];
+  document.getElementById("projects").innerHTML = values[0] ? values[0] : "-";
+  document.getElementById("stars").innerHTML = values[1] ? values[1] : "-";
+  document.getElementById("followers").innerHTML = values[2] ? values[2] : "-";
+  document.getElementById("since").innerHTML = values[3] ? values[3] : "-";
 });
