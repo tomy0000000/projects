@@ -19,7 +19,11 @@ export default {
     // Minify CSS
     // Purge unused CSS
     postcss({
-      plugins: [purgecss({ content: ["_site/index.html"] })],
+      plugins: [
+        purgecss({
+          content: ["_site/main/index.html", "_site/js/main.bundle.js"],
+        }),
+      ],
       extract: "css/main.bundle.css",
       minimize: production,
     }),
@@ -27,13 +31,14 @@ export default {
     production && terser(),
     // Inject CSS and JS into HTML, then minify HTML
     bundleInject({
-      target: "_site/index.html",
+      target: "_site/main/index.html",
+      rename: "index.html",
       minify: production,
     }),
     // Delete source JS and CSS files
     production &&
       del({
-        targets: ["_site/js/*", "_site/scss"],
+        targets: ["_site/js", "_site/scss", "_site/css"],
         hook: "buildEnd",
       }),
   ],
