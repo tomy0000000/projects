@@ -21,7 +21,7 @@ export default {
     postcss({
       plugins: [
         purgecss({
-          content: ["_site/main/index.html", "_site/js/main.bundle.js"],
+          content: ["_site/main/index.html", "_site/js/main.js"],
         }),
       ],
       extract: "css/main.bundle.css",
@@ -34,6 +34,7 @@ export default {
       target: "_site/main/index.html",
       rename: "index.html",
       minify: production,
+      minifierOptions: { removeEmptyElements: false },
     }),
     // Delete source JS and CSS files
     production &&
