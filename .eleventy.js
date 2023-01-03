@@ -12,6 +12,7 @@ const success = async (message) => {
 module.exports = function (eleventyConfig) {
   // Static files
   eleventyConfig.addPassthroughCopy({ "src/seo/**": "/" });
+  eleventyConfig.addPassthroughCopy("src/img");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/scss");
 

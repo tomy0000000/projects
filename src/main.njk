@@ -13,6 +13,8 @@ layout: base
   {% include "stats.njk" %}
   <section id="entries" class="section">
     {%- for project in collections.project %}
+      {% include "entry.njk" %}
+      {% include "project.njk" %}
     {%- endfor %}
   </section>
 </div>
