@@ -10,7 +10,7 @@
             {% endif %}
             <div class="media-content">
                 <h3>
-                    <a class="modal-button" data-target="modal-{{ project.data.title }}" data-project="{{ project.data.title }}">{{ project.data.title }}</a>
+                    <a class="modal-button" data-target="modal-{{ project.data.title | slugify }}" data-project="{{ project.data.title | slugify }}">{{ project.data.title }}</a>
                 </h3>
                 <p>{{ project.data.description }}</p>
                 {% for label in project.data.labels %}

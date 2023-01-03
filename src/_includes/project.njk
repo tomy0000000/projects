@@ -3,14 +3,14 @@
     <html lang="en">
         <head>
             <meta charset="utf-8">
-            <title>Redirecting to /?project={{ title }}</title>
-            <meta http-equiv="refresh" content="0; URL=/?project={{ title }}">
-            <link rel="canonical" href="/?project={{ title }}">
+            <title>Redirecting to /?project={{ title | slugify }}</title>
+            <meta http-equiv="refresh" content="0; URL=/?project={{ title | slugify }}">
+            <link rel="canonical" href="/?project={{ title | slugify }}">
         </head>
         <body></body>
     </html>
 {% else %}
-    <div id="modal-{{ project.data.title }}" class="modal modal-fx-fadeInScale">
+    <div id="modal-{{ project.data.title | slugify }}" class="modal modal-fx-fadeInScale">
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
