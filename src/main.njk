@@ -21,7 +21,7 @@ layout: base
   {% include "stats.njk" %}
   <section id="entries" class="section">
     {%- for project in collections.projects | sortByOrder %}
-      {%- if not project.data.draft and project.data.title -%}
+      {%- if project.data.title -%}
         {% include "entry.njk" %}
         {% include "project.njk" %}
       {%- endif -%}
