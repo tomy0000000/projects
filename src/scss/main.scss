@@ -1,5 +1,6 @@
 @use "../../node_modules/bulma/bulma.sass";
 @use "../../node_modules/bulma-modal-fx/dist/css/modal-fx.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap");
 
 @keyframes loading {
   0% {
@@ -13,6 +14,19 @@
 .button.is-github {
   background-color: #181717;
   color: #fff;
+}
+
+section#hero {
+  font-family: "Jost", sans-serif;
+  .title {
+    font-size: 5rem;
+  }
+  .subtitle {
+    font-size: 2rem;
+    address {
+      font-style: unset;
+    }
+  }
 }
 
 section#stats {
