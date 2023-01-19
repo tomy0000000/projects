@@ -19,6 +19,22 @@ module.exports = function (eleventyConfig) {
   // Shortcode
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
+  // Ignore files
+  eleventyConfig.ignores.add("src/projects/_template.njk");
+
+  // Collections
+  eleventyConfig.addCollection("projects", function (collection) {
+    return collection.getFilteredByGlob("src/projects/*.njk");
+  });
+
+  // Filters
+  eleventyConfig.addFilter("sortByOrder", (values) => {
+    let vals = [...values];
+    return vals.sort((a, b) =>
+      Math.sign((a.data.order || 99) - (b.data.order || 99))
+    );
+  });
+
   // Trigger Rollup after Eleventy build
   eleventyConfig.on("eleventy.after", async () => {
     try {
