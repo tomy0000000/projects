@@ -20,7 +20,11 @@ layout: base
   <section id="entries" class="section">
     {%- for project in collections.projects | sortByOrder %}
       {%- if project.data.title -%}
-        {% include "entry.njk" %}
+        <div class="entry-card card mt-5">
+          <div class="card-content">
+            {% include "entry.njk" %}
+          </div>
+        </div>
         {% include "project.njk" %}
       {%- endif -%}
     {%- endfor %}

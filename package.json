@@ -4,7 +4,7 @@
   "description": "Catalog of open source projects by Tomy Hsieh",
   "scripts": {
     "build": "NODE_ENV=production eleventy",
-    "dev": "eleventy --serve --incremental --watch",
+    "dev": "eleventy --serve --watch",
     "dev:debug": "DEBUG=Eleventy* eleventy --serve --incremental --watch",
     "bench": "DEBUG=Eleventy:Benchmark* eleventy"
   },
@@ -24,6 +24,10 @@
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.57.1",
+    "swiper": "^8.4.6",
     "terser": "^5.16.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.1"
   }
 }

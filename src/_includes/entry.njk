@@ -1,22 +1,18 @@
-<div class="entry-card card mt-5">
-    <div class="card-content">
-        <article class="content media">
-            {% if project.data.icon %}
-                <img src="{{ project.data.icon }}" alt="Icon of {{ project.data.title }}" class="media-left image is-96x96"/>
-            {% else %}
-                <div class="media-left image is-96x96 is-flex is-justify-content-center is-align-items-center">
-                    <p class="project-emojis">{{ project.data.emoji }}</p>
-                </div>
-            {% endif %}
-            <div class="media-content">
-                <h3>
-                    <a class="modal-button" data-target="modal-{{ project.data.title | slugify }}" data-project="{{ project.data.title | slugify }}">{{ project.data.title }}</a>
-                </h3>
-                <p>{{ project.data.description }}</p>
-                {% for label in project.data.labels %}
-                    <span class="tag is-rounded">{{ label }}</span>
-                {% endfor %}
-            </div>
-        </article>
+<article class="content media">
+    {% if project.data.icon %}
+        <img src="{{ project.data.icon }}" alt="Icon of {{ project.data.title }}" class="media-left image is-96x96"/>
+    {% else %}
+        <div class="media-left image is-96x96 is-flex is-justify-content-center is-align-items-center">
+            <p class="project-emojis">{{ project.data.emoji }}</p>
+        </div>
+    {% endif %}
+    <div class="media-content">
+        <h3>
+            <a class="modal-button" data-target="modal-{{ project.data.title | slugify }}" data-project="{{ project.data.title | slugify }}">{{ project.data.title }}</a>
+        </h3>
+        <p>{{ project.data.description }}</p>
+        {% for label in project.data.labels %}
+            <span class="tag is-rounded">{{ label }}</span>
+        {% endfor %}
     </div>
-</div>
+</article>

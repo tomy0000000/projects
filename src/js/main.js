@@ -1,4 +1,9 @@
+import Swiper, { Navigation, Pagination } from "swiper";
 import "../scss/main.scss";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "bulma-modal-fx/dist/css/modal-fx.css";
 
 const elements = {
   target: "target",
@@ -99,4 +104,17 @@ Promise.all([projects, stars, followers, since]).then((values) => {
   document.getElementById("stars").innerHTML = values[1] ? values[1] : "-";
   document.getElementById("followers").innerHTML = values[2] ? values[2] : "-";
   document.getElementById("since").innerHTML = values[3] ? values[3] : "-";
+});
+
+const swiper = new Swiper(".swiper", {
+  modules: [Navigation, Pagination],
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
 });

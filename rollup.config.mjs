@@ -1,3 +1,4 @@
+import resolve from "@rollup/plugin-node-resolve";
 import postcss from "rollup-plugin-postcss";
 import purgecss from "@fullhuman/postcss-purgecss";
 import terser from "@rollup/plugin-terser";
@@ -15,22 +16,21 @@ export default {
     name: "main",
   },
   plugins: [
-    // Compile SCSS to CSS
-    // Minify CSS
-    // Purge unused CSS
+    resolve(), // Resolve node_modules
     postcss({
+      // Compile SCSS to CSS -> Minify -> Purge unused
       plugins: [
         purgecss({
           content: ["_site/main/index.html", "_site/js/main.js"],
+          safelist: ["swiper-pagination"],
         }),
       ],
       extract: "css/main.bundle.css",
       minimize: production,
     }),
-    // Minify JS
-    production && terser(),
-    // Inject CSS and JS into HTML, then minify HTML
+    production && terser(), // Minify JS
     bundleInject({
+      // Inject CSS and JS into HTML, then minify HTML
       target: "_site/main/index.html",
       rename: "index.html",
       minify: production,

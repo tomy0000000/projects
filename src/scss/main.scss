@@ -1,5 +1,4 @@
-@use "../../node_modules/bulma/bulma.sass";
-@use "../../node_modules/bulma-modal-fx/dist/css/modal-fx.min.css";
+@import "../../node_modules/bulma/bulma.sass";
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap");
 
 @keyframes loading {
@@ -53,5 +52,27 @@ section#entries {
 
   p.project-emojis {
     font-size: 6rem;
+  }
+
+  @media screen and (min-width: $tablet) {
+    $wide-modal: 80vw;
+
+    .model-card {
+      flex-direction: column-reverse !important;
+    }
+
+    .is-wide {
+      width: $wide-modal;
+    }
+
+    .carousel {
+      flex-wrap: wrap;
+      align-content: center;
+    }
+
+    .swiper {
+      width: calc($wide-modal / 2);
+      border-radius: 1rem;
+    }
   }
 }
