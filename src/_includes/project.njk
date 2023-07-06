@@ -47,6 +47,19 @@
                             <div class="column content">
                                 {% include "entry.njk" %}
                                 {{ project.templateContent | safe }}
+                                {% if project.data.co_author %}
+                                    <p>Co-Authored with:
+                                    </p>
+                                    <ul>
+                                        {% for author in project.data.co_author %}
+                                            <li>
+                                                <address>
+                                                    <a href="{{ author.link }}" target="_blank" rel="noopener noreferrer">{{ author.name }}</a>
+                                                </address>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
                             {% else %}
                                 <p>🏃🏻 More content is on the way !<br/>Please check back later.</p>
                             </div>
