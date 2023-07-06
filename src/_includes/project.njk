@@ -56,7 +56,7 @@
                 {% if project.data.repository_url %}
                     <footer class="modal-card-foot is-justify-content-flex-end">
                         {% if project.data.demo_url %}
-                            <a href="{{ project.data.demo_url }}" class="button is-success">
+                            <a href="{{ project.data.demo_url }}" target="_blank" rel="noreferrer noopenner" class="button is-success">
                                 <span class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" preserveaspectratio="xMidYMid meet" viewbox="0 0 20 20"><path
                                             fill="currentColor"
@@ -74,7 +74,7 @@
                                 <span>Live</span>
                             </a>
                         {% endif %}
-                        <a href="{{ project.data.repository_url }}" class="button is-github">
+                        <a href="{{ project.data.repository_url }}" target="_blank" rel="noreferrer noopenner" class="button is-github">
                             <span class="icon">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
