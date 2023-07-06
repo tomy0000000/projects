@@ -25,18 +25,22 @@
                     <div class="columns">
                         {% if project.data.images %}
                             <div class="column carousel is-flex-tablet">
-                                <div class="swiper">
-                                    <div class="swiper-wrapper">
-                                        {%- for iamge in project.data.images -%}
-                                            <div class="swiper-slide">
-                                                <img src="{{ iamge }}" alt="Slide {{ loop.index }}"/>
-                                            </div>
-                                        {%- endfor -%}
+                                {% if project.data.images | length == 1 %}
+                                    <img src="{{ project.data.images[0] }}"/>
+                                {% elif project.data.images | length > 1 %}
+                                    <div class="swiper">
+                                        <div class="swiper-wrapper">
+                                            {%- for iamge in project.data.images -%}
+                                                <div class="swiper-slide">
+                                                    <img src="{{ iamge }}" alt="Slide {{ loop.index }}"/>
+                                                </div>
+                                            {%- endfor -%}
+                                        </div>
+                                        <div class="swiper-pagination"></div>
+                                        <div class="swiper-button-next"></div>
+                                        <div class="swiper-button-prev"></div>
                                     </div>
-                                    <div class="swiper-pagination"></div>
-                                    <div class="swiper-button-prev"></div>
-                                    <div class="swiper-button-next"></div>
-                                </div>
+                                {% endif %}
                             </div>
                         {% endif %}
                         {% if project.templateContent %}
