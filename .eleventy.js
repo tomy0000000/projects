@@ -20,7 +20,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
   // Ignore files
-  eleventyConfig.ignores.add("src/projects/_*.njk");
+  eleventyConfig.watchIgnores.add("src/projects/_*.njk");
 
   // Collections
   eleventyConfig.addCollection("projects", function (collection) {
